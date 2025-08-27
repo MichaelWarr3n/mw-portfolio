@@ -38,22 +38,25 @@ export default function CursorTrail({ children }) {
 
   // Animate particles
   useEffect(() => {
-    let animationFrame;
+  let animationFrame;
 
-    const animate = () => {
-      for (let p of particlesRef.current) {
-        p.x += p.dx;
-        p.y += p.dy;
-        p.life = Math.max(0, p.life - 0.02); // fade slowly
-      }
+  const animate = () => {
+    particlesRef.current = particlesRef.current
+      .map((p) => ({
+        ...p,
+        x: p.x + p.dx,
+        y: p.y + p.dy,
+        life: Math.max(0, p.life - 0.01),
+      }))
+      .filter((p) => p.life > 0); // remove particles that are fully faded
 
-      tick(t => t + 1); // trigger render
-      animationFrame = requestAnimationFrame(animate);
-    };
+    tick((t) => t + 1); // trigger render
+    animationFrame = requestAnimationFrame(animate);
+  };
 
-    animate();
-    return () => cancelAnimationFrame(animationFrame);
-  }, []);
+  animate();
+  return () => cancelAnimationFrame(animationFrame);
+}, []);
 
   return (
     <div

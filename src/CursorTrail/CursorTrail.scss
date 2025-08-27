@@ -14,19 +14,19 @@
 
   &__dot {
     position: absolute;
-    width: 6px;
-    height: 6px;
+    width: 4px;
+    height: 4px;
     border-radius: 50%;
     background: $primary;
     pointer-events: none;
     transform: translate(-50%, -50%);
-    box-shadow: 0 0 8px 4px rgba(17, 243, 248, 0.6);
+    box-shadow: 0 0 4px 2px rgba(17, 243, 248, 0.6);
     transition: background 0.3s, box-shadow 0.3s;
     z-index: 10;
 
     &:nth-child(2n) {
       background: rgb(229, 45, 244);
-      box-shadow: 0 0 8px 4px rgba(229, 45, 244, 0.6);
+      box-shadow: 0 0 4px 2px rgba(229, 45, 244, 0.6);
     }
   }
 }
