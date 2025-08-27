@@ -1,0 +1,42 @@
+@import '../global-styles/variables.scss';
+@import '../global-styles/mixins.scss';
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.header {
+  align-items: center;
+  background-color: $primary-dark;
+  color: $white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 32px;
+
+  &__left-column {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+
+    p {
+      font-size: 24px;
+    }
+  }
+
+  &__right-column {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__react-logo {
+    animation: spin infinite 10s ease-in-out;
+    margin-bottom: 8px;
+  }
+}

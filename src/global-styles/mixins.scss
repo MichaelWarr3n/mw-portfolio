@@ -1,0 +1,84 @@
+@import './variables.scss';
+
+// Buttons
+
+@mixin button($bg: $gray-dark, $border-color: $primary, $color: $white) {
+  background-color: $bg;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  color: $color;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 700;
+  font-family: inherit;
+  padding: 0.6em 1.2em;
+  text-decoration: none;;
+  transition: all 0.25s;
+
+  &:hover,
+  &:focus,
+  &:focus-visible {
+    background-color: darken($bg, 8%);
+    border-color: $border-color;
+  }
+
+  &:active {
+    background-color: darken($bg, 12%);
+  }
+
+  &:disabled,
+  &[aria-disabled="true"] {
+    opacity: 0.6;
+    pointer-events: none;
+  }
+}
+
+// Variants
+@mixin button--primary {
+  background-color: $primary;
+  color: $black;
+
+  &:hover,
+  &:focus,
+  &:focus-visible {
+    background-color: darken($primary, 8%);
+    border-color: $secondary;
+  }
+
+  &:active {
+    background-color: darken($primary, 12%);
+  }
+}
+
+@mixin button--secondary {
+  background-color: $tiertiary;
+  color: $white;
+
+  &:hover,
+  &:focus,
+  &:focus-visible {
+    background-color: darken($tiertiary, 8%);
+    border-color: $quaternary;
+  }
+
+  &:active {
+    background-color: darken($tiertiary, 12%);
+  }
+}
+
+@mixin button--outline {
+  background-color: transparent;
+  border-thickness: 2px;
+  border-color: $secondary;
+  color: $black;
+
+  &:hover,
+  &:focus,
+  &:focus-visible {
+    background-color: darken($secondary, 8%);
+  }
+
+  &:active {
+    background-color: darken($secondary, 12%);
+  }
+}
