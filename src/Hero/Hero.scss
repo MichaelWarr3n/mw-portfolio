@@ -1,0 +1,13 @@
+@import '../global-styles/variables.scss';
+@import '../global-styles/mixins.scss';
+
+.Hero {
+  height: calc(100vh - 180px);
+  width: 100%;
+
+  img {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
+}

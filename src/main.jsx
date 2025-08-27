@@ -2,9 +2,14 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './global-styles/index.scss'
 import Header from './Header/Header.jsx'
+import Hero from './Hero/Hero.jsx'
+import CursorTrail from './CursorTrail/CursorTrail.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Header />
+    <CursorTrail>
+      <Header />
+      <Hero />
+    </CursorTrail>
   </StrictMode>,
 )
