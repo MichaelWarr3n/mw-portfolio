@@ -5,6 +5,7 @@ import Header from './Header/Header.jsx'
 import Hero from './Hero/Hero.jsx'
 import CursorTrail from './CursorTrail/CursorTrail.jsx'
 import About from './About/About.jsx'
+import Experience from './Experience/Experience.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -13,5 +14,6 @@ createRoot(document.getElementById('root')).render(
       <Hero />
     </CursorTrail>
     <About />
+    <Experience />
   </StrictMode>,
 )

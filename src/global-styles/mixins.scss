@@ -1,4 +1,5 @@
-@import './variables.scss';
+@use "sass:color";
+@use './variables' as *;
 
 // Buttons
 
@@ -18,12 +19,12 @@
   &:hover,
   &:focus,
   &:focus-visible {
-    background-color: darken($bg, 8%);
+    background-color: color.adjust($bg, $lightness: -8%);
     border-color: $border-color;
   }
 
   &:active {
-    background-color: darken($bg, 12%);
+    background-color: color.adjust($bg, $lightness: -12%);
   }
 
   &:disabled,
@@ -41,12 +42,12 @@
   &:hover,
   &:focus,
   &:focus-visible {
-    background-color: darken($primary, 8%);
+    background-color: color.adjust($primary, $lightness: -8%);
     border-color: $secondary;
   }
 
   &:active {
-    background-color: darken($primary, 12%);
+    background-color: color.adjust($primary, $lightness: -12%);
   }
 }
 
@@ -57,12 +58,12 @@
   &:hover,
   &:focus,
   &:focus-visible {
-    background-color: darken($tiertiary, 8%);
+    background-color: color.adjust($tiertiary, $lightness: -8%);
     border-color: $quaternary;
   }
 
   &:active {
-    background-color: darken($tiertiary, 12%);
+    background-color: color.adjust($tiertiary, $lightness: -12%);
   }
 }
 
@@ -75,10 +76,10 @@
   &:hover,
   &:focus,
   &:focus-visible {
-    background-color: darken($secondary, 8%);
+    background-color: color.adjust($secondary, $lightness: -8%);
   }
 
   &:active {
-    background-color: darken($secondary, 12%);
+    background-color: color.adjust($secondary, $lightness: 12%);
   }
 }

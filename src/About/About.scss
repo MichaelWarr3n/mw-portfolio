@@ -1,9 +1,9 @@
-@import '../global-styles/variables.scss';
-@import '../global-styles/mixins.scss';
+@use '../global-styles/variables' as *;
+@use '../global-styles/mixins' as *;
 
 .About {
   display: flex;
-  gap: 32px;
+  gap: 64px;
   height: 100vh;
   width: 100%;
 
