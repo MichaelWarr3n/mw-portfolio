@@ -1,19 +1,10 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './global-styles/index.scss'
-import Header from './Header/Header.jsx'
-import Hero from './Hero/Hero.jsx'
-import CursorTrail from './CursorTrail/CursorTrail.jsx'
-import About from './About/About.jsx'
-import Experience from './Experience/Experience.jsx'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import App from "./App/App.jsx";
+import "./global-styles/index.scss";
 
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <CursorTrail>
-      <Header />
-      <Hero />
-    </CursorTrail>
-    <About />
-    <Experience />
-  </StrictMode>,
-)
+    <App />
+  </StrictMode>
+);

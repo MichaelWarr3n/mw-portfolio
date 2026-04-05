@@ -15,7 +15,7 @@ function About() {
           I'm Michael Warren, a passionate front-end developer with a knack for creating engaging and user-friendly web experiences. With a strong foundation in HTML, CSS, and JavaScript, I specialize in building responsive and interactive websites that captivate users.
         </p>
         <p>
-          My expertise extends to popular frameworks like React.js and Vue.js, allowing me to craft dynamic single-page applications that are both performant and maintainable. I also have experience with CMS platforms like Drupal, enabling me to deliver robust content management solutions.
+          My expertise extends to popular frameworks like React.js and Vue.js, crafting dynamic single-page applications that are both performant and maintainable. I also have experience with CMS platforms like Drupal, enabling me to deliver robust content management solutions.
         </p>
       </div>
       <div class="About__right-container">
