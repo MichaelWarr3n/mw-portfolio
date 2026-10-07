@@ -15,20 +15,18 @@
   background: #000;
   color: $white;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   padding: 32px;
+
+  @include bp(lg) {
+    flex-direction: row;
+  }
 
   &__left-column {
     align-items: flex-start;
     display: flex;
     flex-direction: column;
-
-    h1 {
-      font-size: 64px;
-      font-weight: 500;
-      margin-bottom: 8px;
-    }
 
     p {
       font-size: 24px;
@@ -40,6 +38,8 @@
     display: flex;
     flex-direction: column;
     font-family: 'Silkscreen', sans-serif;
+    justify-content: center;
+    text-align: center;
   }
 
   &__react-logo {

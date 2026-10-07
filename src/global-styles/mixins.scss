@@ -1,5 +1,6 @@
 @use "sass:color";
 @use './variables' as *;
+@use "sass:map";
 
 // Buttons
 
@@ -96,7 +97,7 @@ $breakpoints: (
 );
 
 @mixin bp($name) { 
-  $value: map-get($breakpoints, $name);
+  $value: map.get($breakpoints, $name);
   @media (min-width: $value) { 
     @content;
   }

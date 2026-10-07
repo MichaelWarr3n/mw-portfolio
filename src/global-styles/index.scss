@@ -16,18 +16,25 @@ body {
 }
 
 h1 {
-  font-size: 60px;
-  font-weight: 400;
+  font-size: 32px;
+  font-weight: 500;
   line-height: 1.2;
   margin: 0 0 8px 0;
+
+  @include bp(lg) {
+    font-size: 64px;
+  }
 }
 
 h2 {
   font-family: 'Silkscreen', sans-serif;
-  font-size: 40px;
+  font-size: 24px;
   font-weight: 400;
-  line-height: 1.2;
   margin: 0 0 8px 0;
+
+  @include bp(lg) {
+    font-size: 36px;
+  }
 }
 
 a {
