@@ -2,6 +2,8 @@ import './Experience.scss'
 import JustIt from '../assets/justit.jpg';
 import RR from '../assets/readingroom.jpg';
 import MemoryGame from '../assets/memory-game-screenshot.da2c5114.png';
+import TravelPlanner from '../assets/travel-tracker-screenshot36960ade.png';
+import ToDo from '../assets/to-do-app-screenshot4966c09c.png';
 
 function Experience() {
   return (
@@ -45,9 +47,19 @@ function Experience() {
         <h2>Projects</h2>
         <div class="Experience__projects">
 
+          <a class="Experience__project" href="https://michaelwarr3n.github.io/To-Do-App/" target="_blank" rel="noopener noreferrer">
+            <h3>To-Do App</h3>
+            <img src={ToDo} alt="To-do app website"/>         
+          </a>
+
           <a class="Experience__project" href="https://michaelwarr3n.github.io/Memory-Game/" target="_blank" rel="noopener noreferrer">
             <h3>Memory Game</h3>
             <img src={MemoryGame} alt="Memory game website" />
+          </a>
+
+          <a class="Experience__project" href="https://michaelwarr3n.github.io/Travel-Planner/" target="_blank" rel="noopener noreferrer">
+            <h3>Travel Planner</h3>
+            <img src={TravelPlanner} alt="Travel planner website" />
           </a>
 
         </div>

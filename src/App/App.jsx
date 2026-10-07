@@ -6,6 +6,7 @@ import Hero from '../Hero/Hero.jsx';
 import CursorTrail from '../CursorTrail/CursorTrail.jsx';
 import About from '../About/About.jsx';
 import Experience from '../Experience/Experience.jsx';
+import Contact from '../Contact/Contact.jsx';
 
 export default function App() {
 
@@ -31,6 +32,10 @@ export default function App() {
 
       <div className="section">
         <Experience />
+      </div>
+
+      <div className="section">
+        <Contact />
       </div>
     </div>
   );

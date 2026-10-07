@@ -65,6 +65,13 @@
     padding: 64px 64px 64px 0;
   }
 
+  &__projects {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    padding: 0 64px;
+  }
+
   &__project {
     align-items: center;
     background-color: $gray-lighter;
