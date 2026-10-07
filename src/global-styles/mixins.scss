@@ -83,3 +83,21 @@
     background-color: color.adjust($secondary, $lightness: 12%);
   }
 }
+
+// Breakpoints
+
+$breakpoints: ( 
+  xs: 360px,
+  sm: 576px,
+  md: 768px,
+  lg: 1028px,
+  xl: 1200px,
+  xxl: 1400px 
+);
+
+@mixin bp($name) { 
+  $value: map-get($breakpoints, $name);
+  @media (min-width: $value) { 
+    @content;
+  }
+}
