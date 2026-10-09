@@ -19,7 +19,11 @@ h1 {
   font-size: 32px;
   font-weight: 500;
   line-height: 1.2;
-  margin: 0 0 8px 0;
+  margin: 0 0 16px 0;
+
+  @include bp(sm) {
+    font-size: 48px;
+  }
 
   @include bp(lg) {
     font-size: 64px;
@@ -31,6 +35,10 @@ h2 {
   font-size: 24px;
   font-weight: 400;
   margin: 0 0 8px 0;
+
+  @include bp(sm) {
+    margin: 0 0 16px 0;
+  }
 
   @include bp(lg) {
     font-size: 36px;

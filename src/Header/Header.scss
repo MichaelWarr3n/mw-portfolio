@@ -16,10 +16,11 @@
   color: $white;
   display: flex;
   flex-direction: column;
+  gap: 16px;
   justify-content: space-between;
   padding: 32px;
 
-  @include bp(lg) {
+  @include bp(md) {
     flex-direction: row;
   }
 
@@ -27,6 +28,7 @@
     align-items: flex-start;
     display: flex;
     flex-direction: column;
+    width: 100%;
 
     p {
       font-size: 24px;
@@ -36,14 +38,24 @@
   &__right-column {
     align-items: center;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     font-family: 'Silkscreen', sans-serif;
-    justify-content: center;
+    gap: 16px;
     text-align: center;
+    width: 100%;
+
+    @include bp(md) {
+      flex-direction: column;
+      width: auto;
+    }
   }
 
   &__react-logo {
     animation: spin infinite 10s ease-in-out;
-    margin-bottom: 8px;
+    width: 24px;
+
+    @include bp(md) {
+      width: 48px;
+    }
   }
 }

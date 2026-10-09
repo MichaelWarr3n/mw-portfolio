@@ -12,10 +12,14 @@ function About() {
       <div class="About__left-container">
         <h2>About Me</h2>
         <p>
-          I'm Michael Warren, a passionate front-end developer with a knack for creating engaging and user-friendly web experiences. With a strong foundation in HTML, CSS, and JavaScript, I specialize in building responsive and interactive websites that captivate users.
+          Hi! I'm a front-end developer with experience creating engaging and user-friendly web experiences. With a strong foundation in HTML, CSS, and JavaScript, I specialize in building responsive and interactive websites that captivate users and meet WCAG accessibility standards.
         </p>
         <p>
-          My expertise extends to popular frameworks like React.js and Vue.js, crafting dynamic single-page applications that are both performant and maintainable. I also have experience with CMS platforms like Drupal, enabling me to deliver robust content management solutions.
+          Skilled in HTML, CSS,
+JavaScript, Twig, and SCSS, with additional experience in React.js
+and Vue.js. Collaborative and adaptable, with strong
+communication skills and a track record of working effectively with
+cross-functional teams.
         </p>
       </div>
       <div class="About__right-container">
