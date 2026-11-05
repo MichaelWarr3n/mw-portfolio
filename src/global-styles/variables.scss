@@ -13,3 +13,13 @@ $tiertiary: #D94921;
 $quaternary: #59413A;
 $primary-dark: #3A5859;
 $tiertiary-dark: #3A5946;
+
+// Breakpoints
+
+$breakpoints: ( 
+  sm: 576px,
+  md: 768px,
+  lg: 1028px,
+  xl: 1200px,
+  xxl: 1400px 
+);

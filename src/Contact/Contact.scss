@@ -2,9 +2,9 @@
 @use '../global-styles/mixins' as *;
 
 .Contact {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  height: 100vh;
   width: 100%;
 
   h2 {
@@ -16,50 +16,110 @@
     }
   }
 
-  &__links {
+  &__contact-container {
     align-items: center;
     display: flex;
     flex-direction: column;
-    gap: 32px;
-    height: 100%;
+    flex-wrap: wrap;
+    gap: 16px;
     justify-content: center;
-    padding: 32px 32px 64px;
+    padding: 32px 32px 128px;
 
     @include bp(lg) {
-      flex-direction: row;
-      gap: 16px;
-      padding: 0 128px 128px;
+      gap: 32px;
     }
   }
 
   &__link {
     align-items: center;
+    box-sizing: border-box;
     display: flex;
-    flex: 1;
     flex-direction: column;
-    gap: 16px;
+    gap: 8px;
     text-decoration: none;
 
     &:hover {
-      border-bottom: 2px solid $tiertiary-dark;
+      text-decoration: underline;
     }
 
     img {
       filter: invert(1);
-      width: 80px;
+      width: 40px;
 
       @include bp(lg) {
-        width: 120px;
+        width: 80px;
       }
     }
 
     p {
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 700;
       margin: 0;
 
       @include bp(lg) {
-        font-size: 24px;
+        font-size: 18px;
+      }
+    }
+  }
+
+  &__projects-container {
+    align-items: center;
+    display: flex;
+    flex-basis: 50%;
+    flex-direction: column;
+    max-width: 800px;
+
+    @include bp(lg) {
+      padding: 64px;
+    }
+  }
+
+  &__projects {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    padding: 0 16px;
+
+    @include bp(lg) {
+      gap: 32px;
+      padding: 0 64px;
+    }
+  }
+
+  &__project {
+    align-items: center;
+    background-color: $gray-lighter;
+    border-radius: 8px;
+    color: $white;
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+    text-decoration: none;
+
+    @include bp(lg) {
+      padding:  16px;
+    }
+
+    &:hover {
+      background-color: $gray;
+      color: $white;
+    }
+
+    h3 {
+      font-size: 16px;
+      margin: 0 0 8px;
+
+      @include bp(lg) {
+        font-size: 18px;
+      }
+    }
+
+    img {
+      height: 50px;
+
+      @include bp(lg) {
+        height: 90px;
       }
     }
   }

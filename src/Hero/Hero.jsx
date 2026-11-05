@@ -3,7 +3,7 @@ import './Hero.scss'
 
 function Hero() {
   return (
-    <div class="Hero">
+    <div className="Hero">
       <img src={heroImage} alt="Hero" />
     </div>
   )

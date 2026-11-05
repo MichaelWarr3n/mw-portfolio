@@ -14,7 +14,15 @@ export default function App() {
     new fullpage("#fullpage", {
       autoScrolling: true,
       navigation: true,
+      responsiveWidth: 768,
+      navigationPosition: "right",
     });
+
+    return () => {
+      if (window.fullpage_api) {
+        window.fullpage_api.destroy("all");
+      }
+    };
   }, []);
 
   return (
