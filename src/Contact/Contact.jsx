@@ -10,7 +10,7 @@ const projects = [
   {
     name: 'To-Do App',
     image: ToDo,
-    url: 'https://michaelwarr3n.github.io/To-Do-App/',
+    url: 'https://michaelwarr3n.github.io/to-do-app/',
   },
   {
     name: 'Memory Game',
