@@ -1,12 +1,19 @@
 @use './variables' as *;
 @use './mixins' as *;
+
+// Fonts
 @import url("https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100..700&display=swap");
 
 // Global styles
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 :root {
-  font-family: "Roboto Mono", sans-serif;
+  font-family: $font-body;
   font-weight: 400;
   line-height: 1.5;
 }
@@ -16,52 +23,69 @@ body {
 }
 
 h1 {
-  font-size: 32px;
+  font-size: 48px;
   font-weight: 500;
   line-height: 1.2;
-  margin: 0 0 16px 0;
+  margin: 0 0 16px;
 
-  @include bp(sm) {
-    font-size: 48px;
-  }
-
-  @include bp(lg) {
+  @include bp(md) {
     font-size: 64px;
   }
 }
 
 h2 {
-  font-family: 'Silkscreen', sans-serif;
+  font-family: $font-display;
   font-size: 24px;
   font-weight: 400;
-  margin: 0 0 8px 0;
+  margin: 0 0 8px;
 
-  @include bp(sm) {
-    margin: 0 0 16px 0;
-  }
-
-  @include bp(lg) {
+  @include bp(md) {
     font-size: 36px;
+    margin-bottom: 16px;
+  }
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 8px;
+}
+
+p {
+  font-size: 16px;
+  margin: 0 auto;
+
+  @include bp(md) {
+    font-size: 20px;
   }
 }
 
 a {
   color: $quaternary;
   font-weight: 700;
-}
-a:hover {
-  color: $primary-dark;
+
+  &:hover {
+    color: $primary-dark;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $primary;
+    outline-offset: 4px;
+  }
 }
 
+// Buttons
 .button {
   @include button;
 
   &--primary {
     @include button--primary;
   }
+
   &--secondary {
     @include button--secondary;
   }
+
   &--outline {
     @include button--outline;
   }

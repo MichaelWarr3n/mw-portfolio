@@ -5,15 +5,72 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  width: 100%;
+  gap: 64px;
 
-  h2 {
-    margin-top: 16px;
-    text-align: center;
+  @include bp(md) {
+    flex-direction: row;
+  }
 
-    @include bp(lg) {
-      margin-top: 32px;
+  &__projects-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    @include bp(md) {
+      flex-basis: 70%;
+      padding: 32px;
     }
+  }
+
+  &__projects {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    padding: 0 16px;
+
+    @include bp(md) {
+      gap: 32px;
+    }
+  }
+
+  &__project {
+    align-items: center;
+    color: $white;
+    display: flex;
+    flex-direction: column;
+
+    a {
+      align-items: center;
+      background-color: $black;
+      border: 2px solid $gray-dark;
+      border-radius: 8px;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      opacity: 0.8;
+      padding: 16px;
+      text-decoration: none;
+
+      &:hover {
+        border-color: $secondary;
+        color: $white;
+        text-decoration: underline;
+      }
+    }
+
+    img {
+      height: 50px;
+
+      @include bp(md) {
+        height: 90px;
+      }
+    }
+  }
+
+  &__project-button {
+    @include button($bg: $white, $border-color: $primary, $color: $black);
   }
 
   &__contact-container {
@@ -21,21 +78,35 @@
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    padding: 0 32px 128px;
+
+    @include bp(md) {
+      flex-basis: 30%;
+      padding: 32px;
+    }
+  }
+
+  &__contact-links {
+    display: flex;
+    flex-wrap: wrap;
     gap: 16px;
     justify-content: center;
-    padding: 32px 32px 128px;
+    padding: 0 16px;
 
-    @include bp(lg) {
+    @include bp(md) {
       gap: 32px;
     }
   }
 
-  &__link {
+  &__contact-link {
     align-items: center;
+    border: 1px solid $gray-dark;
+    border-radius: 8px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     gap: 8px;
+    padding: 16px;
     text-decoration: none;
 
     &:hover {
@@ -46,81 +117,13 @@
       filter: invert(1);
       width: 40px;
 
-      @include bp(lg) {
+      @include bp(md) {
         width: 80px;
       }
     }
 
     p {
-      font-size: 16px;
       font-weight: 700;
-      margin: 0;
-
-      @include bp(lg) {
-        font-size: 18px;
-      }
-    }
-  }
-
-  &__projects-container {
-    align-items: center;
-    display: flex;
-    flex-basis: 50%;
-    flex-direction: column;
-    max-width: 800px;
-
-    @include bp(lg) {
-      padding: 64px;
-    }
-  }
-
-  &__projects {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    justify-content: center;
-    padding: 0 16px;
-
-    @include bp(lg) {
-      gap: 32px;
-      padding: 0 64px;
-    }
-  }
-
-  &__project {
-    align-items: center;
-    background-color: $gray-lighter;
-    border-radius: 8px;
-    color: $white;
-    display: flex;
-    flex-direction: column;
-    padding: 8px;
-    text-decoration: none;
-
-    @include bp(lg) {
-      padding:  16px;
-    }
-
-    &:hover {
-      background-color: $gray;
-      color: $white;
-    }
-
-    h3 {
-      font-size: 16px;
-      margin: 0 0 8px;
-
-      @include bp(lg) {
-        font-size: 18px;
-      }
-    }
-
-    img {
-      height: 50px;
-
-      @include bp(lg) {
-        height: 90px;
-      }
     }
   }
 }

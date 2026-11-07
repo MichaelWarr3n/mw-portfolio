@@ -5,6 +5,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -12,7 +13,7 @@
 
 .header {
   align-items: center;
-  background: #000;
+  background: $black;
   color: $white;
   display: flex;
   flex-direction: column;
@@ -39,7 +40,7 @@
     align-items: center;
     display: flex;
     flex-direction: row;
-    font-family: 'Silkscreen', sans-serif;
+    font-family: $font-display;
     gap: 16px;
     text-align: center;
     width: 100%;
@@ -51,11 +52,17 @@
   }
 
   &__react-logo {
-    animation: spin infinite 10s ease-in-out;
+    animation: spin 10s ease-in-out infinite;
     width: 24px;
 
     @include bp(md) {
       width: 48px;
     }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header__react-logo {
+    animation: none;
   }
 }

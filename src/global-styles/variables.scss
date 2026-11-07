@@ -1,5 +1,4 @@
-// Colors
-
+// Colours
 $black: #111;
 $white: #fff;
 $gray-light: #eee;
@@ -9,17 +8,23 @@ $gray-dark: #444;
 
 $primary: #1EF1FE;
 $secondary: #21D966;
-$tiertiary: #D94921;
+$tertiary: #D94921;
 $quaternary: #59413A;
+
 $primary-dark: #3A5859;
-$tiertiary-dark: #3A5946;
+$tertiary-dark: #3A5946;
+
+$cursor-magenta: rgb(229, 45, 244);
+
+// Typography
+$font-body: "Roboto Mono", monospace;
+$font-display: "Silkscreen", monospace;
 
 // Breakpoints
-
-$breakpoints: ( 
+$breakpoints: (
   sm: 576px,
   md: 768px,
   lg: 1028px,
   xl: 1200px,
-  xxl: 1400px 
+  xxl: 1400px
 );

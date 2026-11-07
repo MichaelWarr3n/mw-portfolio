@@ -1,82 +1,139 @@
+
+import { useEffect, useRef } from 'react';
 import './CursorTrail.scss';
-import { useRef, useEffect, useState } from "react";
+
+const MAX_PARTICLES = 20;
+const PARTICLES_PER_BURST = 2;
+
+const CYAN = '#1EF1FE';
+const MAGENTA = 'rgb(229, 45, 244)';
+
+function random(min, max) {
+  return Math.random() * (max - min) + min;
+}
 
 export default function CursorTrail({ children }) {
   const containerRef = useRef(null);
-  const particlesRef = useRef([]);
-  const [, tick] = useState(0); // force re-render
+  const canvasRef = useRef(null);
 
-  const MAX_PARTICLES = 20;
-  const PARTICLES_PER_BURST = 2;
-
-  // Helpers
-  const random = (min, max) => Math.random() * (max - min) + min;
-
-  const createParticles = (x, y) => {
-    return Array.from({ length: PARTICLES_PER_BURST }).map(() => ({
-      id: Math.random().toString(36).substr(2, 9),
-      x,
-      y,
-      dx: random(-2, 2),
-      dy: random(-2, 2),
-      life: 1,
-    }));
-  };
-
-  // Spawn particles on mouse move
-  const handleMouseMove = (e) => {
-    const rect = containerRef.current.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    particlesRef.current.push(...createParticles(x, y));
-
-    // Cap total particles
-    if (particlesRef.current.length > MAX_PARTICLES) {
-      particlesRef.current = particlesRef.current.slice(-MAX_PARTICLES);
-    }
-  };
-
-  // Animate particles
   useEffect(() => {
-  let animationFrame;
+    const container = containerRef.current;
+    const canvas = canvasRef.current;
+    const context = canvas.getContext('2d');
 
-  const animate = () => {
-    particlesRef.current = particlesRef.current
-      .map((p) => ({
-        ...p,
-        x: p.x + p.dx,
-        y: p.y + p.dy,
-        life: Math.max(0, p.life - 0.01),
-      }))
-      .filter((p) => p.life > 0); // remove particles that are fully faded
+    const reducedMotion = window.matchMedia(
+      '(prefers-reduced-motion: reduce)'
+    );
 
-    tick((t) => t + 1); // trigger render
-    animationFrame = requestAnimationFrame(animate);
-  };
+    const finePointer = window.matchMedia(
+      '(hover: hover) and (pointer: fine)'
+    );
 
-  animate();
-  return () => cancelAnimationFrame(animationFrame);
-}, []);
+    if (reducedMotion.matches || !finePointer.matches) return;
+
+    let particles = [];
+    let animationFrame = null;
+
+    const resizeCanvas = () => {
+      const { width, height } = container.getBoundingClientRect();
+      const pixelRatio = window.devicePixelRatio || 1;
+
+      canvas.width = width * pixelRatio;
+      canvas.height = height * pixelRatio;
+
+      canvas.style.width = `${width}px`;
+      canvas.style.height = `${height}px`;
+
+      context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+    };
+
+    const createParticles = (x, y) =>
+      Array.from({ length: PARTICLES_PER_BURST }, (_, index) => ({
+        x,
+        y,
+        dx: random(-2, 2),
+        dy: random(-2, 2),
+        life: 1,
+        color: index === 0 ? CYAN : MAGENTA,
+      }));
+
+    const animate = () => {
+      const { width, height } = container.getBoundingClientRect();
+
+      context.clearRect(0, 0, width, height);
+
+      particles = particles.filter((particle) => particle.life > 0);
+
+      particles.forEach((particle) => {
+        particle.x += particle.dx;
+        particle.y += particle.dy;
+        particle.life = Math.max(0, particle.life - 0.01);
+
+        context.globalAlpha = particle.life;
+        context.fillStyle = particle.color;
+        context.shadowColor = particle.color;
+        context.shadowBlur = 6;
+
+        context.beginPath();
+        context.arc(particle.x, particle.y, 2, 0, Math.PI * 2);
+        context.fill();
+      });
+
+      context.globalAlpha = 1;
+      context.shadowBlur = 0;
+
+      if (particles.length > 0) {
+        animationFrame = requestAnimationFrame(animate);
+      } else {
+        animationFrame = null;
+      }
+    };
+
+    const handlePointerMove = (event) => {
+      const rect = container.getBoundingClientRect();
+
+      particles.push(
+        ...createParticles(
+          event.clientX - rect.left,
+          event.clientY - rect.top
+        )
+      );
+
+      if (particles.length > MAX_PARTICLES) {
+        particles = particles.slice(-MAX_PARTICLES);
+      }
+
+      if (animationFrame === null) {
+        animationFrame = requestAnimationFrame(animate);
+      }
+    };
+
+    resizeCanvas();
+
+    window.addEventListener('resize', resizeCanvas);
+    container.addEventListener('pointermove', handlePointerMove);
+
+    return () => {
+      window.removeEventListener('resize', resizeCanvas);
+      container.removeEventListener('pointermove', handlePointerMove);
+
+      if (animationFrame !== null) {
+        cancelAnimationFrame(animationFrame);
+      }
+    };
+  }, []);
 
   return (
-    <div
-      ref={containerRef}
-      className="CursorTrail"
-      onMouseMove={handleMouseMove}
-    >
-      <div className="CursorTrail__content">{children}</div>
+    <div ref={containerRef} className="CursorTrail">
+      <div className="CursorTrail__content">
+        {children}
+      </div>
 
-      {particlesRef.current.map(p => (
-        <span
-          key={p.id}
-          className="CursorTrail__dot"
-          style={{
-            left: p.x,
-            top: p.y,
-            opacity: p.life
-          }}
-        />
-      ))}
+      <canvas
+        ref={canvasRef}
+        className="CursorTrail__canvas"
+        aria-hidden="true"
+      />
     </div>
   );
 }
